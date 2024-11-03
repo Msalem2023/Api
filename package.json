@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-modal": "^3.16.1",
-    "react-paginate": "^8.2.0"
-  }
-}
