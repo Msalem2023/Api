@@ -1,11 +1,10 @@
-import userModel from "../../../../DB/model/user.model.js";
 import sendEmail from "../../../utilies/email.js";
 import { hash, compare } from "../../../utilies/HashAndCompare.js";
 import {generateToken,verifyToken} from "../../../utilies/GenerateAndVerifyToken.js";
 import { asyncHandler } from "../../../utilies/errorHandling.js";
 import { Cloudinary } from "../../../utilies/Cloudinary.js";
 import MessageModel from "../../../../DB/model/Message.model.js";
-
+import userModel from "../../../../DB/model/user.model.js"
 
 export const getUsers = asyncHandler(async (req, res) => {
   const { id } = req.user
@@ -154,6 +153,7 @@ export const signup = asyncHandler(async (req, res, next) => {
     password: hashPassword,
   });
   return res.status(201).json({
+    user:user,
     success: true,
     message: "Account created successfully, please confirm your email",
   });

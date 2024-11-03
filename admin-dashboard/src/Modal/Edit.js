@@ -24,7 +24,7 @@ const EditModal = () => {
     // eg. "category" : "Beach"
 
     const onSubmit = () => {
-        const token=localStorage.getItem("token")
+        const token=sessionStorage.getItem("token")
         mutate({ image,token })
     };
     const { mutate, isLoading } = useMutation({
@@ -34,7 +34,8 @@ const EditModal = () => {
             toast.success("Info has been modified successfully");
             Edit.onClose();
         },
-        onError: () => {
+        onError: (error) => {
+            console.log(error)
             toast.error("An error occurred while updating info");
         }
     });

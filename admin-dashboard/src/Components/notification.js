@@ -16,6 +16,7 @@ const Notification = () => {
     console.log(data)
 
 
+
     return (
         <div className="relative">
 
@@ -31,10 +32,9 @@ const Notification = () => {
                 <div className="absolute z-10 rounded-xl shadow-lg w-[300px] bg-gray-700 overflow-hidden right-0 top-12 text-sm">
                     <div className="flex flex-col cursor-pointer">
                         {data?.messages?.map((e, i) => {
-                            console.log(e.Message)
+                            console.log(e.Sender._id)
                             return (
-                                <li>
-                                    <a href="" class="items-center block p-3 sm:flex hover:bg-gray-700 dark:hover:bg-gray-700">
+                                <li className="flex p-2">
                                         <img onClick={()=>dispatch({type:"Chat",payload:e.Sender._id})} class="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0" src={e.Sender?.image} alt="Bonnie Green" />
                                         <div>
                                             <div class="text-base font-normal text-gray-600 dark:text-gray-400"><span class="font-medium text-gray-900 dark:text-white">{e.Sender.userName}</span> sent <span class="font-medium text-gray-900 dark:text-white">you</span> Message</div>
@@ -48,7 +48,6 @@ const Notification = () => {
                                                 Private
                                             </span>
                                         </div>
-                                    </a>
                                 </li>
                             )
                         })}
